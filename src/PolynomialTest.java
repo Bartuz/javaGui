@@ -116,4 +116,14 @@ public class PolynomialTest {
         int x = 4;
         assertEquals(new Double(57), p1.calculate(x));
     }
+
+    @Test
+    public void testSetCoefficient() throws Exception {
+        Polynomial p1 = new Polynomial(new double[] {1, 2, 3});
+        p1.setCoefficient(1, 23.2);
+        assertEquals((new Polynomial(new double[]{1, 23.2, 3})).getCoefficients(), p1.getCoefficients());
+
+        p1.setCoefficient(5, 3.2);
+        assertEquals((new Polynomial(new double[]{1, 23.2, 3, 0, 0, 3.2})).getCoefficients(), p1.getCoefficients());
+    }
 }

@@ -115,28 +115,6 @@ class Polynomial {
         }
     }
 
-    public static void main(String[] args) {
-//        Polynomial p0 = new Polynomial();
-//        double[] polynomialArgs = {1, 2};
-//        Polynomial p2 = new Polynomial(polynomialArgs);
-//        Polynomial p3 = new Polynomial(polynomialArgs);
-//        System.out.println("p0: " + p0);
-//        System.out.println("p2: " + p2);
-//        System.out.println("p3: " + p3);
-//        System.out.println("p3 + p2: " + p3.add(p2));
-//        System.out.println("p3 - p2: " + p3.subtract(p2));
-//        System.out.println(Polynomial.add(p2, p2));
-//        System.out.println("p2: " + p2);
-//        p2.add(p2);
-//        System.out.println("p2: " + p2);
-//        System.out.println("doing p3 - p2: " + p3 + " - (" + p2 + ")");
-//        Polynomial p4  = Polynomial.subtract(p3, p2);
-//        System.out.println("p4 = " + p4)
-        Polynomial p1 = new Polynomial(new double[] {1, 2, 3});
-        int x = 4;
-        p1.calculate(x);
-    }
-
     public Double calculate(double x) {
         ListIterator<Double> coefficientsIterator = coefficients.listIterator(coefficients.size());
         double result = 0.0;
@@ -145,5 +123,12 @@ class Polynomial {
             result = result * x + coefficient;
         }
         return result;
+    }
+
+    public Polynomial setCoefficient(int power, double value) {
+        if (power > maxCoefficientPower())
+            ensureSize(coefficients, power + 1);
+        coefficients.set(power, value);
+        return this;
     }
 }
