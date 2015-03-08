@@ -30,6 +30,7 @@ class Polynomial {
             coefficients.add(coefficient);
     }
 
+    @Override
     public String toString() {
         String readablePolynomial = "";
         readablePolynomial += coefficients.get(0);
