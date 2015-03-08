@@ -55,10 +55,13 @@ public class PolynomialTest {
         Polynomial p1 = new Polynomial(new double[] {1, 2});
         Polynomial p2 = new Polynomial(new double[] {2, 3, 4});
         assertEquals((new Polynomial(new double[]{2, 7, 10, 8})).getCoefficients(), p1.multiply(p2).getCoefficients());
+
         // IS IT OK???? Testing inversion of multiplication
         p1 = new Polynomial(new double[] {1, 2});
-        p2 = new Polynomial(new double[] {2, 3, 4});
         assertEquals((new Polynomial(new double[]{2, 7, 10, 8})).getCoefficients(), p2.multiply(p1).getCoefficients());
+
+        p2 = new Polynomial(new double[] {2, 0, 0, 4});
+        assertEquals((new Polynomial(new double[]{2, 4, 0, 4, 8})).getCoefficients(), p2.multiply(p1).getCoefficients());
     }
 
 
