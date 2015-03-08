@@ -94,8 +94,17 @@ class Polynomial {
         return this;
     }
 
+
     public static Polynomial multiply(Polynomial p1, Polynomial p2) {
         return (new Polynomial(p1.coefficients)).multiply(p2);
+    }
+
+    public Polynomial multiply(double factor) {
+        return multiply(new Polynomial(new double[]{factor}));
+    }
+
+    public static Polynomial multiply(Polynomial polynomial, double factor) {
+        return (new Polynomial(polynomial.coefficients)).multiply(factor);
     }
 
     private static void ensureSize(ArrayList<Double> list, int size) {

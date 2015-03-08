@@ -55,7 +55,7 @@ public class PolynomialTest {
         Polynomial p1 = new Polynomial(new double[] {1, 2});
         Polynomial p2 = new Polynomial(new double[] {2, 3, 4});
         assertEquals((new Polynomial(new double[]{2, 7, 10, 8})).getCoefficients(), p1.multiply(p2).getCoefficients());
-        // IS IT OK???? Testing iversion of multiplication
+        // IS IT OK???? Testing inversion of multiplication
         p1 = new Polynomial(new double[] {1, 2});
         p2 = new Polynomial(new double[] {2, 3, 4});
         assertEquals((new Polynomial(new double[]{2, 7, 10, 8})).getCoefficients(), p2.multiply(p1).getCoefficients());
@@ -90,5 +90,21 @@ public class PolynomialTest {
         assertEquals((new Polynomial(new double[]{-1, -1, -4})).getCoefficients(), Polynomial.subtract(p1, p2).getCoefficients());
         assertEquals((new Polynomial(new double[]{1, 2})).getCoefficients(), p1.getCoefficients());
         assertEquals((new Polynomial(new double[]{2, 3, 4})).getCoefficients(), p2.getCoefficients());
+    }
+
+
+    @Test
+    public void testMultiplyByNumber() throws Exception {
+        Polynomial p1 = new Polynomial(new double[] {1, 2});
+        int number = 4;
+        assertEquals((new Polynomial(new double[]{4, 8})).getCoefficients(), p1.multiply(number).getCoefficients());
+    }
+
+    @Test
+    public void testMultiplyByNumberStatic() throws Exception {
+        Polynomial p1 = new Polynomial(new double[] {1, 2});
+        int number = 4;
+        assertEquals((new Polynomial(new double[]{4, 8})).getCoefficients(), Polynomial.multiply(p1, number).getCoefficients());
+        assertEquals((new Polynomial(new double[]{1, 2})).getCoefficients(), p1.getCoefficients());
     }
 }
