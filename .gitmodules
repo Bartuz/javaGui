@@ -4,3 +4,6 @@
 [submodule "lecture01/Polynomial"]
 	path = lecture01/Polynomial
 	url = git@github.com:Bartuz/Polynomial.git
+[submodule "lecture01/rectangle"]
+	path = lecture01/rectangle
+	url = git@github.com:Bartuz/Rectangle.git
