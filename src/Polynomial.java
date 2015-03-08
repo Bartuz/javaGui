@@ -4,7 +4,11 @@
 
 import java.util.ArrayList;
 
-public class Polynomial {
+class Polynomial {
+    public ArrayList<Double> getCoefficients() {
+        return coefficients;
+    }
+
     private ArrayList<Double> coefficients = new ArrayList<Double>();
 
     public Polynomial() {
