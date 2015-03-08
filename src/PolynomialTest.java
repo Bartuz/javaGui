@@ -92,7 +92,6 @@ public class PolynomialTest {
         assertEquals((new Polynomial(new double[]{2, 3, 4})).getCoefficients(), p2.getCoefficients());
     }
 
-
     @Test
     public void testMultiplyByNumber() throws Exception {
         Polynomial p1 = new Polynomial(new double[] {1, 2});
@@ -106,5 +105,12 @@ public class PolynomialTest {
         int number = 4;
         assertEquals((new Polynomial(new double[]{4, 8})).getCoefficients(), Polynomial.multiply(p1, number).getCoefficients());
         assertEquals((new Polynomial(new double[]{1, 2})).getCoefficients(), p1.getCoefficients());
+    }
+
+    @Test
+    public void testCalculate() throws Exception {
+        Polynomial p1 = new Polynomial(new double[] {1, 2, 3});
+        int x = 4;
+        assertEquals(new Double(57), p1.calculate(x));
     }
 }

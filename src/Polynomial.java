@@ -3,6 +3,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 class Polynomial {
     public ArrayList<Double> getCoefficients() {
@@ -95,7 +96,6 @@ class Polynomial {
         return this;
     }
 
-
     public static Polynomial multiply(Polynomial p1, Polynomial p2) {
         return (new Polynomial(p1.coefficients)).multiply(p2);
     }
@@ -131,6 +131,19 @@ class Polynomial {
 //        System.out.println("p2: " + p2);
 //        System.out.println("doing p3 - p2: " + p3 + " - (" + p2 + ")");
 //        Polynomial p4  = Polynomial.subtract(p3, p2);
-//        System.out.println("p4 = " + p4);
+//        System.out.println("p4 = " + p4)
+        Polynomial p1 = new Polynomial(new double[] {1, 2, 3});
+        int x = 4;
+        p1.calculate(x);
+    }
+
+    public Double calculate(double x) {
+        ListIterator<Double> coefficientsIterator = coefficients.listIterator(coefficients.size());
+        double result = 0.0;
+        while(coefficientsIterator.hasPrevious()) {
+            double coefficient = coefficientsIterator.previous();
+            result = result * x + coefficient;
+        }
+        return result;
     }
 }
